@@ -116,7 +116,7 @@
                 <!-- Tables will be displayed here -->
 
                 <div id="table1" style="display: none;">
-                    <form id="tab1" method="post" action="/price">
+                    <form id="price-form" method="post" action="/price">
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
@@ -1660,7 +1660,7 @@
                                 <div class="row">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-8"></div>
-                                    <div id="btnSel" class="col-md-2" style="display: none;"><button id="btnSelector" type="submit" class="btn btn-primary" value="Submit">Submit</button></div>
+                                    <div id="btnSel" class="col-md-2" style="display: none;"><button id="btnSelector" onclick="submitFormPrice()" class="btn btn-primary" value="Submit">Submit</button></div>
 
                                 </div>                
                 </form>

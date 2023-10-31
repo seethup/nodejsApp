@@ -54,6 +54,15 @@ $(document).ready(function () {
 
 });
 
+$(document).ready(function() {
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
+
 function calculatePrice(ex) {
 
     console.log(ex.id);
@@ -94,4 +103,16 @@ const sendMail =() =>{
             console.log(error);
         }
     });
+}
+
+
+const submitFormPrice = () =>{
+
+            $('#price-form').trigger('submit');
+        
+    
+}
+
+const submitFormQty = () => {
+    $('#qty-form').trigger('submit');
 }
