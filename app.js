@@ -523,6 +523,10 @@ function copyToExcel(formData) {
 
             worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
 
+            worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
+
+            // =SUM(H60:H89)+SUM(H32:H58)+SUM(H5:H30)
+
             // Save the workbook
             return workbook.xlsx.writeFile('Medical Camp.xlsx');
         })
