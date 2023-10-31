@@ -95,8 +95,6 @@ app.get('/sendMail', (req, res)=>{
                 + info.response);
         }
     });    
-
-    res.render('emailSuccess');
 });
 
 app.listen(port, () => {
@@ -132,7 +130,7 @@ function saveToExcel(formData) {
             //copySHeet.model = ws1.model;
             //copySHeet.name = dates.toLocaleString();
 
-            const worksheet = workbook.getWorksheet('TestSheet'); // Assuming you want to edit the first sheet
+            const worksheet = workbook.getWorksheet('QuantitySheet-November'); // Assuming you want to edit the first sheet
 
             // 1st Table
             const cellE12 = worksheet.getCell('E12');
@@ -351,7 +349,7 @@ function copyToExcel(formData) {
 
             
 
-            const worksheet = workbook.getWorksheet('PriceSheet'); // Assuming you want to edit the first sheet
+            const worksheet = workbook.getWorksheet('PriceSheet-November'); // Assuming you want to edit the first sheet
 
             let colName = findColumnToEnterData();
             console.log(colName);
