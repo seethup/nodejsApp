@@ -44,7 +44,7 @@ app.post('/', (req, res) => {
 
 app.get('/price', (req, res) => {
 
-    console.log(findColumnToEnterData());
+    
     res.render('priceDetails', { message: '' });
 });
 
@@ -52,6 +52,8 @@ app.post('/price', (req, res) => {
 
     const formDataPrice = req.body;
     console.log(formDataPrice);
+    console.log(formDataPrice.month)
+    console.log(findColumnToEnterData(formDataPrice.month));
     copyToExcel(formDataPrice);
 
     res.render('priceDetails', { message: 'Success ! Price Details have been exported to Excel Sheet. Please verify.' });
@@ -298,7 +300,7 @@ function saveToExcel(formData) {
 
 }
 
-const findColumnToEnterData = () => {
+const findColumnToEnterData = (month) => {
 
     var today = new Date();
 
@@ -306,9 +308,9 @@ const findColumnToEnterData = () => {
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     const d = new Date();
-    let colName = monthNames[d.getMonth()] + ' ' + "01 " + d.getFullYear();
+    //let colName = monthNames[d.getMonth()] + ' ' + "01 " + d.getFullYear();
     //let colName = d.getFullYear()+'-'+d.getMonth().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+'-'+'01';
-
+    let colName = month + ' ' + "01 " + d.getFullYear();
 
     console.log("Date is == " + colName);
 
@@ -351,7 +353,7 @@ function copyToExcel(formData) {
 
             const worksheet = workbook.getWorksheet('PriceSheet-November'); // Assuming you want to edit the first sheet
 
-            let colName = findColumnToEnterData();
+            let colName = findColumnToEnterData(formData.month);
             console.log(colName);
 
             const colsNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA']

@@ -38,6 +38,14 @@ $(document).ready(function () {
         }        
 
     });
+    $('#monthSelector').change(function () {
+        var month = $(this).val();
+
+        document.getElementById('month').value= month;
+
+        console.log(document.getElementById('month').value)
+    });
+
 });
 
 function calculatePrice(ex) {
