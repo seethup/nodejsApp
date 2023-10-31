@@ -1,0 +1,251 @@
+/* #table1,
+#table2,
+#table3,
+#table4,
+#table5,
+#table6,
+#table7,
+#table8,
+#table9,
+#table10,
+#table11,
+#table12,
+#table13,
+#table14,
+#table15,
+#table17,
+#table18 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table1 td,
+#table2 td,
+#table3 td,
+#table4 td,
+#table5 td,
+#table6 td,
+#table7 td,
+#table8 td,
+#table9 td,
+#table10 td,
+#table11 td,
+#table12 td,
+#table13 td,
+#table14 td,
+#table14 td,
+#table15 td,
+#table16 td,
+#table17 td,
+#table18 td,
+#table1 th,
+#table2 th,
+#table3 th,
+#table4 th,
+#table5 th,
+#table6 th,
+#table7 th,
+#table8 th,
+#table9 th,
+#table10 th,
+#table11 th,
+#table12 th,
+#table13 th,
+#table14 th,
+#table15 th,
+#table16 th,
+#table17 th,
+#table18 th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table1 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table2 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table3 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table4 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table5 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table6 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table7 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table8 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table9 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table10 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table11 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table12 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table13 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table14 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table15 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table16 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table17 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table18 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table1 tr:hover {
+  background-color: #ddd;
+}
+
+#table2 tr:hover {
+  background-color: #ddd;
+}
+
+#table3 tr:hover {
+  background-color: #ddd;
+}
+
+#table4 tr:hover {
+  background-color: #ddd;
+}
+
+#table5 tr:hover {
+  background-color: #ddd;
+}
+
+#table6 tr:hover {
+  background-color: #ddd;
+}
+
+#table7 tr:hover {
+  background-color: #ddd;
+}
+
+#table8 tr:hover {
+  background-color: #ddd;
+}
+
+#table9 tr:hover {
+  background-color: #ddd;
+}
+
+#table10 tr:hover {
+  background-color: #ddd;
+}
+
+#table11 tr:hover {
+  background-color: #ddd;
+}
+
+#table12 tr:hover {
+  background-color: #ddd;
+}
+
+#table13 tr:hover {
+  background-color: #ddd;
+}
+
+#table14 tr:hover {
+  background-color: #ddd;
+}
+
+#table15 tr:hover {
+  background-color: #ddd;
+}
+
+#table16 tr:hover {
+  background-color: #ddd;
+}
+
+#table17 tr:hover {
+  background-color: #ddd;
+}
+
+#table18 tr:hover {
+  background-color: #ddd;
+}
+
+#table1 th,
+#table2 th,
+#table3 th,
+#table4 th,
+#table5 th,
+#table6 th,
+#table7 th,
+#table8 th,
+#table9 th,
+#table10 th,
+#table11 th,
+#table12 th,
+#table13 th,
+#table14 th,
+#table15 th,
+#table16 th,
+#table17 th,
+#table18 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+} */
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3 {
+  text-align: center;
+}
+
+.dropCenter {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}

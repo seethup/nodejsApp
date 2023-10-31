@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Display with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel='stylesheet' href='/index.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="Logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+            </a>
+            <div class="container-fluid">
+                <span class="navbar-text">YOGI RAMSURATKUMAR ASHRAM, TIRUVANNAMALAI</span>
+            </div>
+            <div class="container-fluid">
+                <span class="navbar-text">MEDICAL CAMP</span>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/price">Price</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" href="/sendMail">Send Mail</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h3 class="display-5">Medicine Stock Price</h3>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <span id="selectDrop">
+                <label class="text-center" for="tableSelector">
+                    <p>Select a Subcategory to add Price:</p>
+                </label><br />
+                <select class="form-select" id="tableSelector">
+                    <option value="table0">-----Choose one Category------</option>
+                    <option value="table1">ANALGESICS / ANTI PYRETICS / NASIDS / ANTI SPASMODIC</option>
+                    <option value="table2">ANTIBIOTCS</option>
+                    <option value="table3">GENERAL HEALTH / HAEMATINICS / CALCIUM</option>
+                    <option value="table4">ANTI AMOEBIC / ANTI DIARRHOEAL</option>
+                    <option value="table5">ANTI ASTHMATIC / BRONCHODIALATORS / COUGH SYRUP</option>
+                    <option value="table6">ANTI ALLERGY / ANTI COLD / ANTI HISTAMINE</option>
+                    <option value="table7">CARDIO VASCULAR / DIURETICS / ANTI HYPERTENSION MEDICINES</option>
+                    <option value="table8">ANTACID /ANTI ULCERENT</option>
+                    <option value="table9">LIVER PREPARATIONS</option>
+                    <option value="table10">ANTI DIABETICS</option>
+                    <option value="table11">DE WORMING DRUGS</option>
+                    <option value="table12">ANTI FILARIAL / EOSINOPHILA</option>
+                    <option value="table13">ANTI EPILEPTIC</option>
+                    <option value="table14">CORTICOSTEROIDS</option>
+                    <option value="table15">THYROID DRUGS</option>
+                    <option value="table16">EYE DROPS</option>
+                    <option value="table17">EAR, NOSE DROPS</option>
+                    <option value="table18">SKIN PREPARATIONS</option>
+                    <option value="table19">INJECTIONS</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </span>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="container-fluid col-md-2"></div>
+        <div class="container-fluid col-md-8">
+            <div id="tableContainer" style="display: show;" class="container-fluid">
+                <!-- Tables will be displayed here -->
+
+                <div id="table1" style="display: none;">
+                    <form id="tab1" method="post" action="/price">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" colspan="8">Analgesics/ Anti Pyretics / NASIDS / Anti
+                                        Spasmodic</th>
+                                </tr>
+                                <tr>
+                                    <th>Serial Number</th>
+                                    <th colspan="3">Name of the drugs</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Inclusive of GST</th>
+                                    <th>Final Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td id="1"><label for="1">1</label></td>
+                                    <td id="TabName"><label for="TabName">Paracetemol</label></td>
+                                    <td id="tab"><label for="tab">Tab</label></td>
+                                    <td id="mg"><label for="mg">500mg</label></td>
+                                    <td id="qty"><input type="number" class="form-control" name="col1" value="1000"
+                                            readonly /></td>
+                                    <td id="price"><input type="number" class="form-control" name="p1" id="price1" />
+                                    </td>
+                                    <td id="gst"><input type="checkbox" class="form-check-input" id="gst1"
+                                            name="gst1" /></td>
+                                    <td id="finalPrice"><input type="number" step="0.01" class="form-control" name="fp1"
+                                            id="fp1" onclick="calculatePrice(this);" /></td>
+                                </tr>
+                                <tr>
+                                    <td id="2"><label for="2">2</label></td>
+                                    <td id="TabName"><label for="TabName">Paracetemol</label></td>
+                                    <td id="tab"><label for="tab">Syrup</label></td>
+                                    <td id="mg"><label for="mg"> </label></td>
+                                    <td id="qty"><input type="number" class="form-control" name="col2" value="0"
+                                            readonly /></td>
+                                    <td id="price"><input type="number" class="form-control" id="price2" name="p2" />
+                                    </td>
+                                    <td id="gst"><input type="checkbox" class="form-check-input" id="gst2"
+                                            name="gst2" /></td>
+                                    <td id="finalPrice"><input type="number" class="form-control" step="0.01" name="fp2"
+                                            id="fp2" onclick="calculatePrice(this);" /></td>
+                                </tr>
+                                <tr>
+                                    <td id="3"><label for="3">3</label></td>
+                                    <td id="TabName"><label for="TabName">Cyclopam</label></td>
+                                    <td id="tab"><label for="tab">Tab</label></td>
+                                    <td id="mg"><label for="mg"> </label></td>
+                                    <td id="qty"><input type="number" class="form-control" name="col3" value="100"
+                                            readonly /></td>
+                                    <td id="price"><input type="number" class="form-control" id="price3" name="p3" />
+                                    </td>
+                                    <td id="gst"><input type="checkbox" class="form-check-input" id="gst3"
+                                            name="gst3" /></td>
+                                    <td id="finalPrice"><input type="number" class="form-control" step="0.01" name="fp3"
+                                            id="fp3" onclick="calculatePrice(this);" /></td>
+                                </tr>
+                                <tr>
+                                    <td id="4"><label for="4">4</label></td>
+                                    <td id="TabName"><label for="TabName">Diclofenac</label></td>
+                                    <td id="tab"><label for="tab">Tab</label></td>
+                                    <td id="mg"><label for="mg">50</label></td>
+                                    <td><input type="number" name="col4" class="form-control" /></td>
+                                    <td id="price"><input type="number" class="form-control" id="price4" name="p4" />
+                                    </td>
+                                    <td id="gst"><input type="checkbox" class="form-check-input" id="gst4"
+                                            name="gst4" /></td>
+                                    <td id="finalPrice"><input type="number" class="form-control" step="0.01" name="fp4"
+                                            id="fp4" onclick="calculatePrice(this);" /></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+
+                <div id="table2" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center" colspan="8">ANTIBIOTICS</th>
+                            </tr>
+                            <tr>
+                                <th>Serial Number</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="5"><label for="5">5</label></td>
+                                <td id="TabName"><label for="TabName">Amoxycillin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">125mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col5" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p5" id="price5" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst5" name="gst5" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" step="0.01" name="fp5"
+                                        id="fp5" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td id="6"><label for="6">6</label></td>
+                                <td id="TabName"><label for="TabName">Amoxycillin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">250mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col6" value="150"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p6" id="price6" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst6" name="gst6" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" step="0.01" name="fp6"
+                                        id="fp6" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td id="7"><label for="7">7</label></td>
+                                <td id="TabName"><label for="TabName">Ciprofloxacin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">500mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col7" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p7" id="price7" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst7" name="gst7" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp7" step="0.01"
+                                        id="fp7" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td id="TabName"><label for="TabName">Septran</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col8" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p8" id="price8" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst8" name="gst8" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp8" step="0.01"
+                                        id="fp8" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td id="TabName"><label for="TabName">Doxycycline</label></td>
+                                <td id="tab"><label for="tab">Cap</label></td>
+                                <td id="mg"><label for="mg">100mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col9" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p9" id="price9" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst9" name="gst9" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp9" step="0.01"
+                                        id="fp9" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table3" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">GENERAL HEALTH / HAEMATINICS / CALCIUM</th>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>10</td>
+                                <td id="TabName"><label for="TabName">Becomplex(BCT)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col10" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p10" id="price10" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst10" name="gst10" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp10" step="0.01"
+                                        id="fp10" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td id="TabName"><label for="TabName">Multivitamin(MVT)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"> </label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col11" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p11" id="price11" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst11" name="gst11" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp11" step="0.01"
+                                        id="fp11" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td id="TabName"><label for="TabName">Multivitamin(MVT)</label></td>
+                                <td id="tab"><label for="tab">Syrup</label></td>
+                                <td id="mg"><label for="mg"> </label></td>
+                                <td id="qty"><input type="number" name="col12" class="form-control" value="1"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p12" id="price12" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst12" name="gst12" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp12" step="0.01"
+                                        id="fp12" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td id="TabName"><label for="TabName">Iron Syrup</label></td>
+                                <td id="tab"><label for="tab">Syrup</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" name="col13" class="form-control" value="1"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p13" id="price13" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst13" name="gst13" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp13" step="0.01"
+                                        id="fp13" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td id="TabName"><label for="TabName">FST</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" name="col14" value="1000" class="form-control"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p14" id="price14" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst14" name="gst14" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp14" step="0.01"
+                                        id="fp14" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td id="TabName"><label for="TabName">A&D</label></td>
+                                <td id="tab"><label for="tab">Cap</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col15" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p15" id="price15" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst15" name="gst15" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp15" step="0.01"
+                                        id="fp15" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td id="TabName"><label for="TabName">Calcium</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" name="col16" value="1000" readonly
+                                        class="form-control" /></td>
+                                <td id="price"><input type="number" class="form-control" name="p16" id="price16" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst16" name="gst16" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp16" step="0.01"
+                                        id="fp16" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="table4" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTI AMOEBIC / ANTI DIARRHOEAL</th>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>17</td>
+                                <td id="TabName"><label for="TabName">Metronidazole</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">200mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col17" value="15"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p17" id="price17" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst17" name="gst17" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp17" step="0.01"
+                                        id="fp17" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td id="TabName"><label for="TabName">Metronidazole</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">400mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col18" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p18" id="price18" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst18" name="gst18" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp18" step="0.01"
+                                        id="fp18" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td id="TabName"><label for="TabName">Loperamide</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">2mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col19" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p19" id="price19" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst19" name="gst19" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp19" step="0.01"
+                                        id="fp19" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table5" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTI ASTHMATIC / BRONCHODIALATORS / COUGH SYRUP</th>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>20</td>
+                                <td id="TabName"><label for="TabName">Salbutamol</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">4mg</label></td>
+                                <td id="qty"><input type="number" name="col20" class="form-control" value="20"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p20" id="price20" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst20" name="gst20" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp20" step="0.01"
+                                        id="fp20" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td id="TabName"><label for="TabName">Etosalbetol</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col21" value="30"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p21" id="price21" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst21" name="gst21" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp21" step="0.01"
+                                        id="fp21" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td id="TabName"><label for="TabName">Bronchodialator / Cough Syrup</label></td>
+                                <td id="tab"><label for="tab"></label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="text" name="col22" class="form-control" value="1 Jar"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p22" id="price22" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst22" name="gst22" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp22" step="0.01"
+                                        id="fp22" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <div id="table6" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTI ALLERGY / ANTI COLD / ANTI HISTAMINE</th>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>23</td>
+                                <td id="TabName"><label for="TabName">Avil</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">25mg</label></td>
+                                <td id="qty"><input type="number" name="col23" class="form-control" value="150"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p23" id="price23" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst23" name="gst23" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp23" step="0.01"
+                                        id="fp23" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td id="TabName"><label for="TabName">Cetrizine Plus PHENYLEPHRINE</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"> </label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col24" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p24" id="price24" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst24" name="gst24" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp24" step="0.01"
+                                        id="fp24" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td id="TabName"><label for="TabName">Levocetrizine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">5mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col25" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p25" id="price25" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst25" name="gst25" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp25" step="0.01"
+                                        id="fp25" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td id="TabName"><label for="TabName">Levocetrizine(5mg) + Montelukast (10mg) </label>
+                                </td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">5mg+10mg</label></td>
+                                <td id="qty"><input type="number" name="col26" class="form-control" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p26" id="price26" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst26" name="gst26" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp26" step="0.01"
+                                        id="fp26" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td id="TabName"><label for="TabName">Montelukast</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">10mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col27" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p27" id="price27" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst27" name="gst27" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp27" step="0.01"
+                                        id="fp27" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td id="TabName"><label for="TabName">Ambroxol</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">60mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col28" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p28" id="price28" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst28" name="gst28" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp28" step="0.01"
+                                        id="fp28" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table7" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">CARDIO VASCULAR / DIURETICS / ANTI HYPERTENSION MEDS
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>29</td>
+                                <td id="TabName"><label for="TabName">Telmisartan</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">40mg</label></td>
+                                <td id="qty"><input type="number" name="col29" class="form-control" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p29" id="price29" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst29" name="gst29" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp29" step="0.01"
+                                        id="fp29" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td id="TabName"><label for="TabName">Telmisartan(40mg) + Cilnidipine(10mg)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">40mg+10mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col30" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p30" id="price30" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst30" name="gst30" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp30" step="0.01"
+                                        id="fp30" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td id="TabName"><label for="TabName">Cilnidipine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">10mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col31" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p31" id="price31" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst31" name="gst31" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp31" step="0.01"
+                                        id="fp31" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>32</td>
+                                <td id="TabName"><label for="TabName">Atenolol</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">50mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col32" value="14"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p32" id="price32" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst32" name="gst32" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp32" step="0.01"
+                                        id="fp32" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>33</td>
+                                <td id="TabName"><label for="TabName">Atenolol + Amlodipine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">50mg+5mg</label></td>
+                                <td id="qty"><input type="number" name="col33" class="form-control" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p33" id="price33" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst33" name="gst33" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp33" step="0.01"
+                                        id="fp33" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>34</td>
+                                <td id="TabName"><label for="TabName">Amlodipine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">5mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col34" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p34" id="price34" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst34" name="gst34" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp34" step="0.01"
+                                        id="fp34" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>35</td>
+                                <td id="TabName"><label for="TabName">Metoprolol</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">50mg</label></td>
+                                <td id="qty"><input type="number" name="col35" class="form-control" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p35" id="price35" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst35" name="gst35" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp35" step="0.01"
+                                        id="fp35" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>36</td>
+                                <td id="TabName"><label for="TabName">Lasix</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">40mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col36" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p36" id="price36" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst36" name="gst36" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp36" step="0.01"
+                                        id="fp36" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>37</td>
+                                <td id="TabName"><label for="TabName">Aspirin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">300mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col37" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p37" id="price37" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst37" name="gst37" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp37" step="0.01"
+                                        id="fp37" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>38</td>
+                                <td id="TabName"><label for="TabName">Clopidogrel</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">75mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col38" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p38" id="price38" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst38" name="gst38" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp38" step="0.01"
+                                        id="fp38" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>39</td>
+                                <td id="TabName"><label for="TabName">Isordil</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">10mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col39" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p39" id="price39" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst39" name="gst39" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp39" step="0.01"
+                                        id="fp39" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>40</td>
+                                <td id="TabName"><label for="TabName">Deriphylin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col40" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p40" id="price40" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst40" name="gst40" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp40" step="0.01"
+                                        id="fp40" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>41</td>
+                                <td id="TabName"><label for="TabName">Atoruvastatin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">10mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col41" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p41" id="price41" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst41" name="gst41" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp41" step="0.01"
+                                        id="fp41" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>42</td>
+                                <td id="TabName"><label for="TabName">Rosuvastatin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">10mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col42" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p42" id="price42" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst42" name="gst42" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp42" step="0.01"
+                                        id="fp42" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div id="table8" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTACID / ANTI ULCERENT</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>43</td>
+                                <td id="TabName"><label for="TabName">Stemetil(Prochloroprozone)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">5mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col43" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p43" id="price43" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst43" name="gst43" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp43" step="0.01"
+                                        id="fp43" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>44</td>
+                                <td id="TabName"><label for="TabName">Antacid</label></td>
+                                <td id="tab"><label for="tab">Syrup</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col44" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p44" id="price44" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst44" name="gst44" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp44" step="0.01"
+                                        id="fp44" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>45</td>
+                                <td id="TabName"><label for="TabName">Rabeprazole</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">20mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col45" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p45" id="price45" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst45" name="gst45" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp45" step="0.01"
+                                        id="fp45" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>46</td>
+                                <td id="TabName"><label for="TabName">Rantac</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">150mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col46" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p46" id="price46" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst46" name="gst46" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp46" step="0.01"
+                                        id="fp46" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>46A</td>
+                                <td id="TabName"><label for="TabName">Purgolax</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col46A" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p46A" id="price46A" />
+                                </td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst46A"
+                                        name="gst46A" /></td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp46A" step="0.01"
+                                        id="fp46A" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table9" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">LIVER PREPARATIONS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>47</td>
+                                <td id="TabName"><label for="TabName">LIV52</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col47" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p47" id="price47" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst47" name="gst47" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp47" step="0.01"
+                                        id="fp47" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table10" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTI DIABETICS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>48</td>
+                                <td id="TabName"><label for="TabName">Glirum MF (Glynase MF)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col48" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p48" id="price48" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst48" name="gst48" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp48" step="0.01"
+                                        id="fp48" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>49</td>
+                                <td id="TabName"><label for="TabName">Glirum (Glide)</label></td>
+                                <td id="tab"><label for="tab">Cap</label></td>
+                                <td id="mg"><label for="mg">5mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col49" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p49" id="price49" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst49" name="gst49" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp49" step="0.01"
+                                        id="fp49" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>50</td>
+                                <td id="TabName"><label for="TabName">Biciphage (Glychiphage)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">500mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col50" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p50" id="price50" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst50" name="gst50" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp50" step="0.01"
+                                        id="fp50" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>51</td>
+                                <td id="TabName"><label for="TabName">Daonil</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">5mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col51" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p51" id="price51" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst51" name="gst51" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp51" step="0.01"
+                                        id="fp51" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>52</td>
+                                <td id="TabName"><label for="TabName">Glimp M2 (Glimipride 2mg+Metformin)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">2mg+500mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col52" value="1000"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p52" id="price52" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst52" name="gst52" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp52" step="0.01"
+                                        id="fp52" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>53</td>
+                                <td id="TabName"><label for="TabName">Teneligliptin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">20mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col53" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p53" id="price53" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst53" name="gst53" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp53" step="0.01"
+                                        id="fp53" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>54</td>
+                                <td id="TabName"><label for="TabName">Teneligliptin 20mg + Metformin 500mg</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">20mg+500mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col54" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p54" id="price54" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst54" name="gst54" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp54" step="0.01"
+                                        id="fp54" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>54A</td>
+                                <td id="TabName"><label for="TabName">Voglibose 0.2mg</label></td>
+                                <td id="tab"><label for="tab"></label></td>
+                                <td id="mg"><label for="mg">0.2mg</label></td>
+                                <td id="qty"><input type="number" name="col54A" class="form-control" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p54A" id="price54A" />
+                                </td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst54A"
+                                        name="gst54A" /></td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp54A" step="0.01"
+                                        id="fp54A" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <div id="table11" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">DE WORMING DRUGS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>55</td>
+                                <td id="TabName"><label for="TabName">Albendazole</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">400mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col55" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p55" id="price55" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst55" name="gst55" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp55" step="0.01"
+                                        id="fp55" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table12" style="display: none;">
+                    <table class="table table-striped table-hover ">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTI FILARIL / EOSINOPHILA</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>56</td>
+                                <td id="TabName"><label for="TabName">Banocide Forte</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">100mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col56" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p56" id="price56" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst56" name="gst56" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp56" step="0.01"
+                                        id="fp56" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table13" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">ANTI EPILEPTIC</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>57</td>
+                                <td id="TabName"><label for="TabName">Epotin</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">100mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col57" value="120"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p57" id="price57" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst57" name="gst57" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp57" step="0.01"
+                                        id="fp57" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>58</td>
+                                <td id="TabName"><label for="TabName">Carbamazepine (Tegrital)</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">200mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col58" value="10"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p58" id="price58" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst58" name="gst58" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp58" step="0.01"
+                                        id="fp58" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table14" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">CORTICOSTEROIDS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>59</td>
+                                <td id="TabName"><label for="TabName">Decardran</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">0.5mg</label></td>
+                                <td id="qty"><input type="number" name="col59" value="10" /></td>
+                                <td id="price"><input type="number" class="form-control" name="p59" id="price59" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst59" name="gst59" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp59" step="0.01"
+                                        id="fp59" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="table15" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">THYROID DRUGS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>60</td>
+                                <td id="TabName"><label for="TabName">Throxine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">25mcg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col60" value="120"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p60" id="price60" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst60" name="gst60" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp60" step="0.01"
+                                        id="fp60" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>61</td>
+                                <td id="TabName"><label for="TabName">Throxine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">50mcg</label></td>
+                                <td id="qty"><input type="number" name="col61" class="form-control" value="120"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p61" id="price61" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst61" name="gst61" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp61" step="0.01"
+                                        id="fp61" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>62</td>
+                                <td id="TabName"><label for="TabName">Thyroxine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">75mcg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col62" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p62" id="price62" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst62" name="gst62" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp62" step="0.01"
+                                        id="fp62" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>63</td>
+                                <td id="TabName"><label for="TabName">Thyroxine</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">100mcg</label></td>
+                                <td id="qty"><input type="number" name="col63" class="form-control" value="120"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p63" id="price63" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst63" name="gst63" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp63" step="0.01"
+                                        id="fp63" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>64</td>
+                                <td id="TabName"><label for="TabName">Neomercazole</label></td>
+                                <td id="tab"><label for="tab">Tab</label></td>
+                                <td id="mg"><label for="mg">5mg</label></td>
+                                <td id="qty"><input type="number" name="col64" class="form-control" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p64" id="price64" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst64" name="gst64" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp64" step="0.01"
+                                        id="fp64" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="table16" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">EYE DROPS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>65</td>
+                                <td id="TabName"><label for="TabName">Hicool</label></td>
+                                <td id="tab"><label for="tab">Drops</label></td>
+                                <td id="mg"><label for="mg"></label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col65" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p65" id="price65" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst65" name="gst65" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp65" step="0.01"
+                                        id="fp65" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>66</td>
+                                <td id="TabName"><label for="TabName">Moxifloxacin</label></td>
+                                <td id="tab"><label for="tab">Drops</label></td>
+                                <td id="mg"><label for="mg"> </label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col66" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p66" id="price66" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst66" name="gst66" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp66" step="0.01"
+                                        id="fp66" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="table17" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">EAR, NOSE DROPS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>67</td>
+                                <td id="TabName"><label for="TabName">Clotrimazole</label></td>
+                                <td id="tab"><label for="tab">Ear</label></td>
+                                <td id="mg"><label for="mg">Drops</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col67" value="1"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p67" id="price67" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst67" name="gst67" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp67" step="0.01"
+                                        id="fp67" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>68</td>
+                                <td id="TabName"><label for="TabName">Normal Saline</label></td>
+                                <td id="tab"><label for="tab">Nose</label></td>
+                                <td id="mg"><label for="mg">Drops</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col68" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p68" id="price68" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst68" name="gst68" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp68" step="0.01"
+                                        id="fp68" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <div id="table18" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">SKIN PREPARATIONS</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>69</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Clotrimazole Cream</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col69" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p69" id="price69" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst69" name="gst69" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp69" step="0.01"
+                                        id="fp69" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>70</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Whitefield ointment</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col70" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p70" id="price70" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst70" name="gst70" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp70" step="0.01"
+                                        id="fp70" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>71</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Nitrofurazone Cream</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col71" value="1"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p71" id="price71" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst71" name="gst71" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp71" step="0.01"
+                                        id="fp71" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>72</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Zinc Cream</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col72" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p72" id="price72" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst72" name="gst72" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp72" step="0.01"
+                                        id="fp72" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>73</td>
+                                <td colspan="3" id="TabName"><label for="TabName">White Linament</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col73" value="1"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p73" id="price73" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst73" name="gst73" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp73" step="0.01"
+                                        id="fp73" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>74</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Liquid Parafin</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col74" value="1"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p74" id="price74" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst74" name="gst74" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp74" step="0.01"
+                                        id="fp74" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>75</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Spirit</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col75" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p75" id="price75" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst75" name="gst75" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp75" step="0.01"
+                                        id="fp75" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="table19" style="display: none;">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="8" class="text-center">INJECTIONS AVAILABLE</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th colspan="3">Name of the drugs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Inclusive of GST</th>
+                                <th>Final Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>76</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Inj. Dolokind</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col76" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p76" id="price76" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst76" name="gst76" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp76" step="0.01"
+                                        id="fp76" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>77</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Inj. Betnesol</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col77" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p77" id="price77" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst77" name="gst77" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp77" step="0.01"
+                                        id="fp77" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>78</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Inj. Deriphyllin</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col78" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p78" id="price78" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst78" name="gst78" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp78" step="0.01"
+                                        id="fp78" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>79</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Inj. Garamycin 80mg</label></td>
+                                <td id="qty"><input type="number" class="form-control" name="col79" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p79" id="price79" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst79" name="gst79" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp79" step="0.01"
+                                        id="fp79" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>80</td>
+                                <td colspan="3" id="TabName"><label for="TabName">Inj. Cyclopam</label></td>
+                                <td id="qty"><input type="number" name="col80" class="form-control" value="" readonly />
+                                </td>
+                                <td id="price"><input type="number" class="form-control" name="p80" id="price80" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst80" name="gst80" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp80" step="0.01"
+                                        id="fp80" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td>81</td>
+                                <td colspan="3" id="TabName"><label for="TabName">AccuCheck Strips</label></td>
+                                <td id="qty"><input type="number" name="col81" class="form-control" value="100"
+                                        readonly /></td>
+                                <td id="price"><input type="number" class="form-control" name="p81" id="price81"
+                                        value="1700" /></td>
+                                <td id="gst"><input type="checkbox" class="form-check-input" id="gst81" name="gst81" />
+                                </td>
+                                <td id="finalPrice"><input type="number" class="form-control" name="fp81" step="0.01"
+                                        id="fp81" onclick="calculatePrice(this);" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8"><button type="submit" value="Submit">Submit</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="container col-md-4">
+            <p id="succMsg" class="text-center text-success">
+                <%= message%>
+            </p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+
+</html>
