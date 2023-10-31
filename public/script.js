@@ -4,6 +4,7 @@ $(document).ready(function () {
         console.log(selectedTable)
         //  $('#tableContainer').empty(); // Clear existing tables
         $('#' + selectedTable).show();
+        $('#btnSel').show();
 
 
 
@@ -44,6 +45,11 @@ $(document).ready(function () {
         document.getElementById('month').value= month;
 
         console.log(document.getElementById('month').value)
+    });
+
+    $('#btnSelector').change(function () {
+        
+        
     });
 
 });
