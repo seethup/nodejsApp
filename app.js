@@ -521,9 +521,9 @@ function copyToExcel(formData) {
             worksheet.getCell(actualColumnName + '88').value = isEmpty(formData.fp80) ? 0 : parseFloat(formData.fp80);
             worksheet.getCell(actualColumnName + '89').value = isEmpty(formData.fp81) ? 0 : parseFloat(formData.fp81);
 
-            worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
+            // worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
 
-            worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
+            // worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
 
             // =SUM(H60:H89)+SUM(H32:H58)+SUM(H5:H30)
 
