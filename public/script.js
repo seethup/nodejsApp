@@ -71,7 +71,6 @@ function calculatePrice(ex) {
 }
 
 const sendMail =() =>{
-alert(123);
 
    // fetch('http://localhost:3000/sendMail').then(function(response) { console.log(response.status())});
 
