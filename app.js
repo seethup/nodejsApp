@@ -369,157 +369,157 @@ function copyToExcel(formData) {
 
             // 1st Table
             const cellE12 = worksheet.getCell(actualColumnName + '5');
-            cellE12.value = isEmpty(formData.fp1) ? 0 : parseFloat(formData.fp1);
+            cellE12.value = isEmpty(formData.fp1) ? "" : parseFloat(formData.fp1);
 
             const cellE13 = worksheet.getCell(actualColumnName + '6');
-            cellE13.value = isEmpty(formData.fp2) ? 0 : parseFloat(formData.fp2);
+            cellE13.value = isEmpty(formData.fp2) ? "" : parseFloat(formData.fp2);
 
             const cellE14 = worksheet.getCell(actualColumnName + '7');
-            cellE14.value = isEmpty(formData.fp3) ? 0 : parseFloat(formData.fp3);
+            cellE14.value = isEmpty(formData.fp3) ? "" : parseFloat(formData.fp3);
 
             const cellE15 = worksheet.getCell(actualColumnName + '8');
-            cellE15.value = isEmpty(formData.fp4) ? 0 : parseFloat(formData.fp4);
+            cellE15.value = isEmpty(formData.fp4) ? "" : parseFloat(formData.fp4);
 
             //2nd Table
             const cellE18 = worksheet.getCell(actualColumnName + '9');
-            cellE18.value = isEmpty(formData.fp5) ? 0 : parseFloat(formData.fp5);
+            cellE18.value = isEmpty(formData.fp5) ? "" : parseFloat(formData.fp5);
 
             const cellE19 = worksheet.getCell(actualColumnName + '10');
-            cellE19.value = isEmpty(formData.fp6) ? 0 : parseFloat(formData.fp6);
+            cellE19.value = isEmpty(formData.fp6) ? "" : parseFloat(formData.fp6);
 
             const cellE20 = worksheet.getCell(actualColumnName + '11');
-            cellE20.value = isEmpty(formData.fp7) ? 0 : parseFloat(formData.fp7);
+            cellE20.value = isEmpty(formData.fp7) ? "" : parseFloat(formData.fp7);
 
             const cellE21 = worksheet.getCell(actualColumnName + '12');
-            cellE21.value = isEmpty(formData.fp8) ? 0 : parseFloat(formData.fp8);
+            cellE21.value = isEmpty(formData.fp8) ? "" : parseFloat(formData.fp8);
 
             const cellE22 = worksheet.getCell(actualColumnName + '13');
-            cellE22.value = isEmpty(formData.fp9) ? 0 : parseFloat(formData.fp9);
+            cellE22.value = isEmpty(formData.fp9) ? "" : parseFloat(formData.fp9);
 
             //3rd Table
 
             const cellE27 = worksheet.getCell(actualColumnName + '14');
-            cellE27.value = isEmpty(formData.fp10) ? 0 : parseFloat(formData.fp10);
+            cellE27.value = isEmpty(formData.fp10) ? "" : parseFloat(formData.fp10);
 
             const cellE28 = worksheet.getCell(actualColumnName + '15');
-            cellE28.value = isEmpty(formData.fp11) ? 0 : parseFloat(formData.fp11);
+            cellE28.value = isEmpty(formData.fp11) ? "" : parseFloat(formData.fp11);
 
             const cellE29 = worksheet.getCell(actualColumnName + '16');
-            cellE29.value = isEmpty(formData.fp12) ? 0 : parseFloat(formData.fp12);
+            cellE29.value = isEmpty(formData.fp12) ? "" : parseFloat(formData.fp12);
 
             const cellE30 = worksheet.getCell(actualColumnName + '17');
-            cellE30.value = isEmpty(formData.fp13) ? 0 : parseFloat(formData.fp13);
+            cellE30.value = isEmpty(formData.fp13) ? "" : parseFloat(formData.fp13);
 
             const cellE31 = worksheet.getCell(actualColumnName + '18');
-            cellE31.value = isEmpty(formData.fp14) ? 0 : parseFloat(formData.fp14);
+            cellE31.value = isEmpty(formData.fp14) ? "" : parseFloat(formData.fp14);
 
             const cellE32 = worksheet.getCell(actualColumnName + '19');
-            cellE32.value = isEmpty(formData.fp15) ? 0 : parseFloat(formData.fp15);
+            cellE32.value = isEmpty(formData.fp15) ? "" : parseFloat(formData.fp15);
 
-            worksheet.getCell(actualColumnName + '20').value = isEmpty(formData.fp16) ? 0 : parseFloat(formData.fp16);
+            worksheet.getCell(actualColumnName + '20').value = isEmpty(formData.fp16) ? "" : parseFloat(formData.fp16);
 
             //Table 4
 
-            worksheet.getCell(actualColumnName + '21').value = isEmpty(formData.fp17) ? 0 : parseFloat(formData.fp17);
-            worksheet.getCell(actualColumnName + '22').value = isEmpty(formData.fp18) ? 0 : parseFloat(formData.fp18);
-            worksheet.getCell(actualColumnName + '23').value = isEmpty(formData.fp19) ? 0 : parseFloat(formData.fp19);
+            worksheet.getCell(actualColumnName + '21').value = isEmpty(formData.fp17) ? "" : parseFloat(formData.fp17);
+            worksheet.getCell(actualColumnName + '22').value = isEmpty(formData.fp18) ? "" : parseFloat(formData.fp18);
+            worksheet.getCell(actualColumnName + '23').value = isEmpty(formData.fp19) ? "" : parseFloat(formData.fp19);
 
             //Table5
 
-            worksheet.getCell(actualColumnName + '24').value = isEmpty(formData.fp20) ? 0 : parseFloat(formData.fp20);
-            worksheet.getCell(actualColumnName + '25').value = isEmpty(formData.fp21) ? 0 : parseFloat(formData.fp21);
-            worksheet.getCell(actualColumnName + '26').value = isEmpty(formData.fp22) ? 0 : parseFloat(formData.fp22);
+            worksheet.getCell(actualColumnName + '24').value = isEmpty(formData.fp20) ? "" : parseFloat(formData.fp20);
+            worksheet.getCell(actualColumnName + '25').value = isEmpty(formData.fp21) ? "" : parseFloat(formData.fp21);
+            worksheet.getCell(actualColumnName + '26').value = isEmpty(formData.fp22) ? "" : parseFloat(formData.fp22);
 
             //Table 6
-            worksheet.getCell(actualColumnName + '27').value = isEmpty(formData.fp23) ? 0 : parseFloat(formData.fp23);
-            worksheet.getCell(actualColumnName + '28').value = isEmpty(formData.fp24) ? 0 : parseFloat(formData.fp24);
-            worksheet.getCell(actualColumnName + '29').value = isEmpty(formData.fp25) ? 0 : parseFloat(formData.fp25);
-            worksheet.getCell(actualColumnName + '30').value = isEmpty(formData.fp26) ? 0 : parseFloat(formData.fp26);
-            worksheet.getCell(actualColumnName + '32').value = isEmpty(formData.fp27) ? 0 : parseFloat(formData.fp27);
-            worksheet.getCell(actualColumnName + '33').value = isEmpty(formData.fp28) ? 0 : parseFloat(formData.fp28);
+            worksheet.getCell(actualColumnName + '27').value = isEmpty(formData.fp23) ? "" : parseFloat(formData.fp23);
+            worksheet.getCell(actualColumnName + '28').value = isEmpty(formData.fp24) ? "" : parseFloat(formData.fp24);
+            worksheet.getCell(actualColumnName + '29').value = isEmpty(formData.fp25) ? "" : parseFloat(formData.fp25);
+            worksheet.getCell(actualColumnName + '30').value = isEmpty(formData.fp26) ? "" : parseFloat(formData.fp26);
+            worksheet.getCell(actualColumnName + '32').value = isEmpty(formData.fp27) ? "" : parseFloat(formData.fp27);
+            worksheet.getCell(actualColumnName + '33').value = isEmpty(formData.fp28) ? "" : parseFloat(formData.fp28);
 
             //Table 7
-            worksheet.getCell(actualColumnName + '34').value = isEmpty(formData.fp29) ? 0 : parseFloat(formData.fp29);
-            worksheet.getCell(actualColumnName + '35').value = isEmpty(formData.fp30) ? 0 : parseFloat(formData.fp30);
-            worksheet.getCell(actualColumnName + '36').value = isEmpty(formData.fp31) ? 0 : parseFloat(formData.fp31);
-            worksheet.getCell(actualColumnName + '37').value = isEmpty(formData.fp32) ? 0 : parseFloat(formData.fp32);
-            worksheet.getCell(actualColumnName + '38').value = isEmpty(formData.fp33) ? 0 : parseFloat(formData.fp33);
-            worksheet.getCell(actualColumnName + '39').value = isEmpty(formData.fp34) ? 0 : parseFloat(formData.fp34);
-            worksheet.getCell(actualColumnName + '40').value = isEmpty(formData.fp35) ? 0 : parseFloat(formData.fp35);
-            worksheet.getCell(actualColumnName + '41').value = isEmpty(formData.fp36) ? 0 : parseFloat(formData.fp36);
-            worksheet.getCell(actualColumnName + '42').value = isEmpty(formData.fp37) ? 0 : parseFloat(formData.fp37);
-            worksheet.getCell(actualColumnName + '43').value = isEmpty(formData.fp38) ? 0 : parseFloat(formData.fp38);
-            worksheet.getCell(actualColumnName + '44').value = isEmpty(formData.fp39) ? 0 : parseFloat(formData.fp39);
-            worksheet.getCell(actualColumnName + '45').value = isEmpty(formData.fp40) ? 0 : parseFloat(formData.fp40);
-            worksheet.getCell(actualColumnName + '46').value = isEmpty(formData.fp41) ? 0 : parseFloat(formData.fp41);
-            worksheet.getCell(actualColumnName + '47').value = isEmpty(formData.fp42) ? 0 : parseFloat(formData.fp42);
+            worksheet.getCell(actualColumnName + '34').value = isEmpty(formData.fp29) ? "" : parseFloat(formData.fp29);
+            worksheet.getCell(actualColumnName + '35').value = isEmpty(formData.fp30) ? "" : parseFloat(formData.fp30);
+            worksheet.getCell(actualColumnName + '36').value = isEmpty(formData.fp31) ? "" : parseFloat(formData.fp31);
+            worksheet.getCell(actualColumnName + '37').value = isEmpty(formData.fp32) ? "" : parseFloat(formData.fp32);
+            worksheet.getCell(actualColumnName + '38').value = isEmpty(formData.fp33) ? "" : parseFloat(formData.fp33);
+            worksheet.getCell(actualColumnName + '39').value = isEmpty(formData.fp34) ? "" : parseFloat(formData.fp34);
+            worksheet.getCell(actualColumnName + '40').value = isEmpty(formData.fp35) ? "" : parseFloat(formData.fp35);
+            worksheet.getCell(actualColumnName + '41').value = isEmpty(formData.fp36) ? "" : parseFloat(formData.fp36);
+            worksheet.getCell(actualColumnName + '42').value = isEmpty(formData.fp37) ? "" : parseFloat(formData.fp37);
+            worksheet.getCell(actualColumnName + '43').value = isEmpty(formData.fp38) ? "" : parseFloat(formData.fp38);
+            worksheet.getCell(actualColumnName + '44').value = isEmpty(formData.fp39) ? "" : parseFloat(formData.fp39);
+            worksheet.getCell(actualColumnName + '45').value = isEmpty(formData.fp40) ? "" : parseFloat(formData.fp40);
+            worksheet.getCell(actualColumnName + '46').value = isEmpty(formData.fp41) ? "" : parseFloat(formData.fp41);
+            worksheet.getCell(actualColumnName + '47').value = isEmpty(formData.fp42) ? "" : parseFloat(formData.fp42);
 
             //Table 8
 
-            worksheet.getCell(actualColumnName + '48').value = isEmpty(formData.fp43) ? 0 : parseFloat(formData.fp43);
-            worksheet.getCell(actualColumnName + '49').value = isEmpty(formData.fp44) ? 0 : parseFloat(formData.fp44);
-            worksheet.getCell(actualColumnName + '50').value = isEmpty(formData.fp45) ? 0 : parseFloat(formData.fp45);
-            worksheet.getCell(actualColumnName + '51').value = isEmpty(formData.fp46) ? 0 : parseFloat(formData.fp46);
-            worksheet.getCell(actualColumnName + '52').value = isEmpty(formData.fp46A) ? 0 : parseFloat(formData.fp46A);
+            worksheet.getCell(actualColumnName + '48').value = isEmpty(formData.fp43) ? "" : parseFloat(formData.fp43);
+            worksheet.getCell(actualColumnName + '49').value = isEmpty(formData.fp44) ? "" : parseFloat(formData.fp44);
+            worksheet.getCell(actualColumnName + '50').value = isEmpty(formData.fp45) ? "" : parseFloat(formData.fp45);
+            worksheet.getCell(actualColumnName + '51').value = isEmpty(formData.fp46) ? "" : parseFloat(formData.fp46);
+            worksheet.getCell(actualColumnName + '52').value = isEmpty(formData.fp46A) ? "" : parseFloat(formData.fp46A);
 
             //Table 9
-            worksheet.getCell(actualColumnName + '53').value = isEmpty(formData.fp47) ? 0 : parseFloat(formData.fp47);
+            worksheet.getCell(actualColumnName + '53').value = isEmpty(formData.fp47) ? "" : parseFloat(formData.fp47);
 
             //Table 10
 
-            worksheet.getCell(actualColumnName + '54').value = isEmpty(formData.fp48) ? 0 : parseFloat(formData.fp48);
-            worksheet.getCell(actualColumnName + '55').value = isEmpty(formData.fp49) ? 0 : parseFloat(formData.fp49);
-            worksheet.getCell(actualColumnName + '56').value = isEmpty(formData.fp50) ? 0 : parseFloat(formData.fp50);
-            worksheet.getCell(actualColumnName + '57').value = isEmpty(formData.fp51) ? 0 : parseFloat(formData.fp51);
-            worksheet.getCell(actualColumnName + '58').value = isEmpty(formData.fp52) ? 0 : parseFloat(formData.fp52);
-            worksheet.getCell(actualColumnName + '60').value = isEmpty(formData.fp53) ? 0 : parseFloat(formData.fp53);
-            worksheet.getCell(actualColumnName + '61').value = isEmpty(formData.fp54) ? 0 : parseFloat(formData.fp54);
-            worksheet.getCell(actualColumnName + '62').value = isEmpty(formData.fp54A) ? 0 : parseFloat(formData.fp54A);
+            worksheet.getCell(actualColumnName + '54').value = isEmpty(formData.fp48) ? "" : parseFloat(formData.fp48);
+            worksheet.getCell(actualColumnName + '55').value = isEmpty(formData.fp49) ? "" : parseFloat(formData.fp49);
+            worksheet.getCell(actualColumnName + '56').value = isEmpty(formData.fp50) ? "" : parseFloat(formData.fp50);
+            worksheet.getCell(actualColumnName + '57').value = isEmpty(formData.fp51) ? "" : parseFloat(formData.fp51);
+            worksheet.getCell(actualColumnName + '58').value = isEmpty(formData.fp52) ? "" : parseFloat(formData.fp52);
+            worksheet.getCell(actualColumnName + '60').value = isEmpty(formData.fp53) ? "" : parseFloat(formData.fp53);
+            worksheet.getCell(actualColumnName + '61').value = isEmpty(formData.fp54) ? "" : parseFloat(formData.fp54);
+            worksheet.getCell(actualColumnName + '62').value = isEmpty(formData.fp54A) ? "" : parseFloat(formData.fp54A);
 
             //Table 11
-            worksheet.getCell(actualColumnName + '63').value = isEmpty(formData.fp55) ? 0 : parseFloat(formData.fp55);
+            worksheet.getCell(actualColumnName + '63').value = isEmpty(formData.fp55) ? "" : parseFloat(formData.fp55);
 
             //Table 12
-            worksheet.getCell(actualColumnName + '64').value = isEmpty(formData.fp56) ? 0 : parseFloat(formData.fp56);
+            worksheet.getCell(actualColumnName + '64').value = isEmpty(formData.fp56) ? "" : parseFloat(formData.fp56);
 
             //Table 13
-            worksheet.getCell(actualColumnName + '65').value = isEmpty(formData.fp57) ? 0 : parseFloat(formData.fp57);
-            worksheet.getCell(actualColumnName + '66').value = isEmpty(formData.fp58) ? 0 : parseFloat(formData.fp58);
+            worksheet.getCell(actualColumnName + '65').value = isEmpty(formData.fp57) ? "" : parseFloat(formData.fp57);
+            worksheet.getCell(actualColumnName + '66').value = isEmpty(formData.fp58) ? "" : parseFloat(formData.fp58);
 
             //Table 14
-            worksheet.getCell(actualColumnName + '67').value = isEmpty(formData.fp59) ? 0 : parseFloat(formData.fp59);
+            worksheet.getCell(actualColumnName + '67').value = isEmpty(formData.fp59) ? "" : parseFloat(formData.fp59);
 
             //Table 15
-            worksheet.getCell(actualColumnName + '68').value = isEmpty(formData.fp60) ? 0 : parseFloat(formData.fp60);
-            worksheet.getCell(actualColumnName + '69').value = isEmpty(formData.fp61) ? 0 : parseFloat(formData.fp61);
-            worksheet.getCell(actualColumnName + '70').value = isEmpty(formData.fp62) ? 0 : parseFloat(formData.fp62);
-            worksheet.getCell(actualColumnName + '71').value = isEmpty(formData.fp63) ? 0 : parseFloat(formData.fp63);
-            worksheet.getCell(actualColumnName + '72').value = isEmpty(formData.fp64) ? 0 : parseFloat(formData.fp64);
+            worksheet.getCell(actualColumnName + '68').value = isEmpty(formData.fp60) ? "" : parseFloat(formData.fp60);
+            worksheet.getCell(actualColumnName + '69').value = isEmpty(formData.fp61) ? "" : parseFloat(formData.fp61);
+            worksheet.getCell(actualColumnName + '70').value = isEmpty(formData.fp62) ? "" : parseFloat(formData.fp62);
+            worksheet.getCell(actualColumnName + '71').value = isEmpty(formData.fp63) ? "" : parseFloat(formData.fp63);
+            worksheet.getCell(actualColumnName + '72').value = isEmpty(formData.fp64) ? "" : parseFloat(formData.fp64);
 
             //Table 16
-            worksheet.getCell(actualColumnName + '73').value = isEmpty(formData.fp65) ? 0 : parseFloat(formData.fp65);
-            worksheet.getCell(actualColumnName + '74').value = isEmpty(formData.fp66) ? 0 : parseFloat(formData.fp66);
+            worksheet.getCell(actualColumnName + '73').value = isEmpty(formData.fp65) ? "" : parseFloat(formData.fp65);
+            worksheet.getCell(actualColumnName + '74').value = isEmpty(formData.fp66) ? "" : parseFloat(formData.fp66);
 
             //Table 17
-            worksheet.getCell(actualColumnName + '75').value = isEmpty(formData.fp67) ? 0 : parseFloat(formData.fp67);
-            worksheet.getCell(actualColumnName + '76').value = isEmpty(formData.fp68) ? 0 : parseFloat(formData.fp68);
+            worksheet.getCell(actualColumnName + '75').value = isEmpty(formData.fp67) ? "" : parseFloat(formData.fp67);
+            worksheet.getCell(actualColumnName + '76').value = isEmpty(formData.fp68) ? "" : parseFloat(formData.fp68);
 
             //Table 18
-            worksheet.getCell(actualColumnName + '77').value = isEmpty(formData.fp69) ? 0 : parseFloat(formData.fp69);
-            worksheet.getCell(actualColumnName + '78').value = isEmpty(formData.fp70) ? 0 : parseFloat(formData.fp70);
-            worksheet.getCell(actualColumnName + '79').value = isEmpty(formData.fp71) ? 0 : parseFloat(formData.fp71);
-            worksheet.getCell(actualColumnName + '80').value = isEmpty(formData.fp72) ? 0 : parseFloat(formData.fp72);
-            worksheet.getCell(actualColumnName + '81').value = isEmpty(formData.fp73) ? 0 : parseFloat(formData.fp73);
-            worksheet.getCell(actualColumnName + '82').value = isEmpty(formData.fp74) ? 0 : parseFloat(formData.fp74);
-            worksheet.getCell(actualColumnName + '83').value = isEmpty(formData.fp75) ? 0 : parseFloat(formData.fp75);
+            worksheet.getCell(actualColumnName + '77').value = isEmpty(formData.fp69) ? "" : parseFloat(formData.fp69);
+            worksheet.getCell(actualColumnName + '78').value = isEmpty(formData.fp70) ? "" : parseFloat(formData.fp70);
+            worksheet.getCell(actualColumnName + '79').value = isEmpty(formData.fp71) ? "" : parseFloat(formData.fp71);
+            worksheet.getCell(actualColumnName + '80').value = isEmpty(formData.fp72) ? "" : parseFloat(formData.fp72);
+            worksheet.getCell(actualColumnName + '81').value = isEmpty(formData.fp73) ? "" : parseFloat(formData.fp73);
+            worksheet.getCell(actualColumnName + '82').value = isEmpty(formData.fp74) ? "" : parseFloat(formData.fp74);
+            worksheet.getCell(actualColumnName + '83').value = isEmpty(formData.fp75) ? "" : parseFloat(formData.fp75);
 
             //Table 19
-            worksheet.getCell(actualColumnName + '84').value = isEmpty(formData.fp76) ? 0 : parseFloat(formData.fp76);
-            worksheet.getCell(actualColumnName + '85').value = isEmpty(formData.fp77) ? 0 : parseFloat(formData.fp77);
-            worksheet.getCell(actualColumnName + '86').value = isEmpty(formData.fp78) ? 0 : parseFloat(formData.fp78);
-            worksheet.getCell(actualColumnName + '87').value = isEmpty(formData.fp79) ? 0 : parseFloat(formData.fp79);
-            worksheet.getCell(actualColumnName + '88').value = isEmpty(formData.fp80) ? 0 : parseFloat(formData.fp80);
-            worksheet.getCell(actualColumnName + '89').value = isEmpty(formData.fp81) ? 0 : parseFloat(formData.fp81);
+            worksheet.getCell(actualColumnName + '84').value = isEmpty(formData.fp76) ? "" : parseFloat(formData.fp76);
+            worksheet.getCell(actualColumnName + '85').value = isEmpty(formData.fp77) ? "" : parseFloat(formData.fp77);
+            worksheet.getCell(actualColumnName + '86').value = isEmpty(formData.fp78) ? "" : parseFloat(formData.fp78);
+            worksheet.getCell(actualColumnName + '87').value = isEmpty(formData.fp79) ? "" : parseFloat(formData.fp79);
+            worksheet.getCell(actualColumnName + '88').value = isEmpty(formData.fp80) ? "" : parseFloat(formData.fp80);
+            worksheet.getCell(actualColumnName + '89').value = isEmpty(formData.fp81) ? "" : parseFloat(formData.fp81);
 
             // worksheet.getCell(actualColumnName + '90').value = { formula: 'SUM(H5:H89)' };
 
