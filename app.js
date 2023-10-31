@@ -74,9 +74,9 @@ app.get('/sendMail', (req, res)=>{
     let mail = {
         from: 'seethup@gmail.com',
         to:
-            'nivi2310@gmail.com',
-        subject: 'Sending Email using Node.js',
-        text: 'That was easy!',
+            'vijikalyan2006@gmail.com',
+        subject: 'Medical Camp XLXS',
+        text: 'Medical Camp XLSX',
         html:
             '<h1>GeeksforGeeks</h1><p>Medical Camp excel</p>',
     attachments: [
